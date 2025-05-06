@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reiborn Realty - Premium Land Plots in Bhor, Pune</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a5276, #117864);
+            z-index: -2;
+        }
+
+        .hero-mountains {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background: rgba(0, 0, 0, 0.4); */
+            background: url(/images/beautiful-landscape-high-angle.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4CAF50;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-icon {
+            transition: transform 0.3s;
+        }
+
+        .feature:hover .feature-icon {
+            transform: scale(1.2);
+        }
+
+        .scroll-down {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(260px);
+            }
+
+            40% {
+                transform: translateY(240px);
+            }
+
+            60% {
+                transform: translateY(230px);
+            }
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #4CAF50;
+            margin: 15px auto 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white bg-opacity-95 shadow-md transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- <div class="text-2xl font-bold text-green-700">Reiborn Realty</div> -->
+                <img class="nav-logo" src="/images/Reiborn Rrealty Logo.png" alt="">
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home"
+                    class="nav-link font-medium text-gray-700 hover:text-green-600 transition-colors">Home</a>
+                <a href="#about" class="nav-link font-medium text-gray-700 hover:text-green-600 transition-colors">About
+                    Us</a>
+                <a href="#projects"
+                    class="nav-link font-medium text-gray-700 hover:text-green-600 transition-colors">Projects</a>
+                <a href="#why-us" class="nav-link font-medium text-gray-700 hover:text-green-600 transition-colors">Why
+                    Choose Us</a>
+                <a href="#contact"
+                    class="nav-link font-medium text-gray-700 hover:text-green-600 transition-colors">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full py-2 px-4 shadow-md">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-green-600">Home</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-green-600">About Us</a>
+            <a href="#projects" class="block py-2 text-gray-700 hover:text-green-600">Projects</a>
+            <a href="#why-us" class="block py-2 text-gray-700 hover:text-green-600">Why Choose Us</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-green-600">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center justify-center">
+        <div class="hero-bg"></div>
+
+        <!-- SVG Mountains -->
+        <svg class="hero-mountains" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+            preserveAspectRatio="none">
+            <path fill="#2d3748" fill-opacity="0.8"
+                d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,218.7C672,235,768,245,864,229.3C960,213,1056,171,1152,165.3C1248,160,1344,192,1392,208L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+            <path fill="#1a202c" fill-opacity="0.9"
+                d="M0,288L48,272C96,256,192,224,288,218.7C384,213,480,235,576,245.3C672,256,768,256,864,240C960,224,1056,192,1152,197.3C1248,203,1344,245,1392,266.7L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+
+        <div class="hero-overlay"></div>
+
+        <div class="container mx-auto px-4 z-10 hero-content">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 reveal-hero">
+                        <span class="block">Own Your Piece of</span>
+                        <span class="text-green-300">Nature in Bhor, Pune</span>
+                    </h1>
+                    <h2 class="text-xl md:text-2xl font-medium text-gray-200 mb-6 reveal-hero">Premium Land Plots by
+                        Reiborn Realty</h2>
+                    <p class="text-gray-300 mb-8 max-w-lg reveal-hero">Looking for a peaceful investment or your future
+                        weekend home? Discover Reiborn Realty's exclusive plotting project in Bhor, where scenic
+                        landscapes meet smart planning.</p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4 reveal-hero">
+                        <a href="#projects"
+                            class="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors transform hover:-translate-y-1 hover:shadow-lg">Explore
+                            Projects</a>
+                        <a href="#contact"
+                            class="bg-transparent hover:bg-white border-2 border-white text-white hover:text-green-700 font-medium py-3 px-6 rounded-lg transition-all transform hover:-translate-y-1 hover:shadow-lg">Contact
+                            Us</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+                <a href="#about" class="text-white scroll-down block mt-[100px]">
+                    <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 section-title reveal-title">About Us</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 reveal-left">
+                    <h3 class="text-2xl font-semibold text-green-700 mb-4">Building Value, Creating Trust</h3>
+                    <p class="text-gray-700 mb-6">Reiborn Realty is a professionally managed real estate firm
+                        specializing in land development, NA plotting, and curated residential projects. With a
+                        commitment to transparency, legal clarity, and smart growth, we help you make sound real estate
+                        investments that offer peace of mind and future returns.</p>
+                    <p class="text-gray-700">Driven by a passion for quality and trust, our team ensures each project is
+                        legally compliant, well-connected, and future-ready.</p>
+                </div>
+                <div class="md:w-1/2 reveal-right">
+                    <div class="bg-gray-100 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-4">Welcome to Reiborn Realty</h3>
+                        <p class="text-gray-700 mb-6">At Reiborn Realty, we redefine real estate by offering
+                            thoughtfully planned land plotting and residential solutions across emerging and desirable
+                            locations in Maharashtra.</p>
+                        <p class="text-gray-700">Whether you're looking to invest, build your dream home, or explore
+                            second-home options, we bring you properties that blend nature, value, and long-term
+                            potential.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Project Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 section-title reveal-title">Featured Project
+            </h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 reveal-left">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="h-64 bg-cover bg-center"
+                            style="background-image: url(/images/beautiful-landscape-with-hills.jpg)">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-green-700 mb-2">Bhor, Pune</h3>
+                            <p class="text-gray-600 mb-4">Scenic NA plots with mountain views</p>
+                            <div class="flex items-center mb-4">
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">NA
+                                    Approved</span>
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">Premium
+                                    Location</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 reveal-right">
+                    <h3 class="text-2xl font-semibold text-green-700 mb-4">Bhor Project Highlights</h3>
+                    <p class="text-gray-700 mb-6">Just a short drive from Pune, Bhor is fast emerging as a preferred
+                        destination for nature lovers, second-home seekers, and savvy investors. Nestled in the lap of
+                        the Western Ghats, our project offers thoughtfully demarcated land parcels surrounded by hills,
+                        greenery, and clean air—perfect for a life of peace or a future getaway.</p>
+                    <ul class="space-y-3 text-gray-700 mb-6">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            NA-approved plots with clear titles
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Well-developed infrastructure with internal roads
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Water and electricity provisions
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Security and future-ready amenities
+                        </li>
+                    </ul>
+                    <a href="#contact"
+                        class="inline-block bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">Book
+                        a Site Visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 section-title reveal-title">Our Projects</h2>
+            <p class="text-center text-gray-700 max-w-2xl mx-auto mb-12 reveal-text">Land Plotting | Farmhouse Plots |
+                Residential Layouts</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg reveal-card">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url(/images/Dax\ Cooke\ –\ Cheap\ Land\ Options\ in\ LATAM.jpeg)">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Bhor</h3>
+                        <p class="text-gray-600 mb-4">Scenic NA plots with mountain views</p>
+                        <a href="#contact"
+                            class="text-green-600 hover:text-green-800 font-medium inline-flex items-center">
+                            Learn more
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg reveal-card">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url(/images/view-land-plot-real-estate-business-development.jpg)">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Wai</h3>
+                        <p class="text-gray-600 mb-4">Farmhouse-friendly plots surrounded by nature</p>
+                        <a href="#contact"
+                            class="text-green-600 hover:text-green-800 font-medium inline-flex items-center">
+                            Learn more
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg reveal-card">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url(/images/delimitation-land-plots-concept.jpg)">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Shirwal</h3>
+                        <p class="text-gray-600 mb-4">Affordable land investment options with high growth potential</p>
+                        <a href="#contact"
+                            class="text-green-600 hover:text-green-800 font-medium inline-flex items-center">
+                            Learn more
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 reveal-text">
+                <p class="text-gray-700 mb-6">Each of our locations is carefully chosen for its natural charm,
+                    connectivity, and development potential.</p>
+                <a href="#contact"
+                    class="inline-block bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">Request
+                    Project Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 section-title reveal-title">Why Choose Reiborn
+                Realty?</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature bg-white p-6 rounded-lg shadow-md text-center reveal-feature">
+                    <div class="bg-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-green-600 feature-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">100% Clear Title & NA Approved</h3>
+                    <p class="text-gray-600">All our properties come with clear titles and necessary approvals for peace
+                        of mind.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature bg-white p-6 rounded-lg shadow-md text-center reveal-feature">
+                    <div class="bg-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-green-600 feature-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Strategic Locations</h3>
+                    <p class="text-gray-600">Properties in areas with high growth potential and natural beauty.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature bg-white p-6 rounded-lg shadow-md text-center reveal-feature">
+                    <div class="bg-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-green-600 feature-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Gated Layouts with Infrastructure</h3>
+                    <p class="text-gray-600">Secure communities with essential amenities and infrastructure.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature bg-white p-6 rounded-lg shadow-md text-center reveal-feature">
+                    <div class="bg-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-green-600 feature-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">On-Time Possession</h3>
+                    <p class="text-gray-600">We value your time and ensure timely delivery with transparent dealings.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center reveal-text">
+                <p class="text-gray-700 mb-6">Ideal for Investment, Second Homes, or Construction</p>
+                <a href="#contact"
+                    class="inline-block bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">Contact
+                    Our Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 section-title reveal-title">Contact Us</h2>
+            <p class="text-center text-gray-700 max-w-2xl mx-auto mb-12 reveal-text">Let's find your perfect piece of
+                land.</p>
+
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2 reveal-left">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-6">Get in Touch</h3>
+
+                        <!-- Contact Form -->
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                                <input type="text" id="name"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="email"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phone"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+
+                            <div>
+                                <label for="interest" class="block text-gray-700 mb-2">I'm interested in</label>
+                                <select id="interest"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                                    <option value="">Select an option</option>
+                                    <option value="bhor">Bhor Project</option>
+                                    <option value="wai">Wai Project</option>
+                                    <option value="shirwal">Shirwal Project</option>
+                                    <option value="general">General Inquiry</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-2">Your Message</label>
+                                <textarea id="message" rows="4"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">Send
+                                Message</button>
+                        </form>
+
+                        <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-md">
+                            Thank you for your message! We'll get back to you soon.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 reveal-right">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-6">Contact Information</h3>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div
+                                    class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-800 mb-1">Office Address</h4>
+                                    <p class="text-gray-600">Reiborn Realty, Pune, Maharashtra, India</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div
+                                    class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-800 mb-1">Phone Number</h4>
+                                    <p class="text-gray-600">+91 98765 43210</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div
+                                    class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-800 mb-1">Email</h4>
+                                    <p class="text-gray-600">info@reibornrealty.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div
+                                    class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-800 mb-1">Site Visit Bookings</h4>
+                                    <p class="text-gray-600">Available on weekends and by appointment</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="text-lg font-medium text-gray-800 mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center text-green-600 hover:bg-green-200 transition-colors">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#"
+                                    class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center text-green-600 hover:bg-green-200 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#"
+                                    class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center text-green-600 hover:bg-green-200 transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#"
+                                    class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center text-green-600 hover:bg-green-200 transition-colors">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold text-green-400 mb-4">Reiborn Realty</h3>
+                    <p class="text-gray-300 max-w-xs">Redefining real estate with thoughtfully planned land plotting and
+                        residential solutions across Maharashtra.</p>
+                </div>
+
+                <div class="mb-8 md:mb-0">
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-green-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-green-400 transition-colors">About Us</a>
+                        </li>
+                        <li><a href="#projects"
+                                class="text-gray-300 hover:text-green-400 transition-colors">Projects</a></li>
+                        <li><a href="#why-us" class="text-gray-300 hover:text-green-400 transition-colors">Why Choose
+                                Us</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-green-400 transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Projects</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#projects" class="text-gray-300 hover:text-green-400 transition-colors">Bhor</a>
+                        </li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-green-400 transition-colors">Wai</a>
+                        </li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-green-400 transition-colors">Shirwal</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2023 Reiborn Realty. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // In a real implementation, you would send the form data to a server
+            // For this demo, we'll just show the success message
+            formSuccess.classList.remove('hidden');
+            contactForm.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                formSuccess.classList.add('hidden');
+            }, 5000);
+        });
+
+        // Initialize ScrollReveal
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '30px',
+            duration: 1000,
+            delay: 200,
+            easing: 'ease-in-out',
+            reset: false
+        });
+
+        // Apply animations
+        sr.reveal('.reveal-hero', { origin: 'top', distance: '50px', interval: 200 });
+        sr.reveal('.reveal-title', { origin: 'bottom', distance: '20px' });
+        sr.reveal('.reveal-text', { delay: 300 });
+        sr.reveal('.reveal-left', { origin: 'left' });
+        sr.reveal('.reveal-right', { origin: 'right' });
+        sr.reveal('.reveal-card', { interval: 200 });
+        sr.reveal('.reveal-feature', { interval: 200 });
+
+        // Project card hover effect
+        const projectCards = document.querySelectorAll('.project-card');
+
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+            });
+        });
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'93b76641246a47f6',t:'MTc0NjUyMzIwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
